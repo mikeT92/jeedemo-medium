@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>edu.hm.cs.fwp.jeedemo</groupId>
+		<artifactId>jeedemo-medium</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>jeedemo-medium-presentation</artifactId>
+	<packaging>war</packaging>
+	<description>Web module of a mediumweight JEE application</description>
+	<dependencies>
+		<dependency>
+			<groupId>edu.hm.cs.fwp.jeedemo</groupId>
+			<artifactId>jeedemo-medium-business-model</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>edu.hm.cs.fwp.jeedemo</groupId>
+			<artifactId>jeedemo-medium-business</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
