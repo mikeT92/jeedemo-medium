@@ -140,21 +140,27 @@
 						<ejbVersion>3.2</ejbVersion>
 					</configuration>
 				</plugin>
-			<!-- DB data model management -->
+				<!-- DB data model management -->
 				<plugin>
 					<groupId>org.flywaydb</groupId>
 					<artifactId>flyway-maven-plugin</artifactId>
 					<version>4.2.0</version>
 				</plugin>
+				<!-- Used to run Docker builds and pushes -->
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>0.24.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 	<modules>
+		<module>jeedemo-medium-resources</module>
 		<module>jeedemo-medium-business-model</module>
 		<module>jeedemo-medium-integration</module>
 		<module>jeedemo-medium-business</module>
 		<module>jeedemo-medium-presentation</module>
 		<module>jeedemo-medium-app</module>
-		<module>jeedemo-medium-resources</module>
 	</modules>
 </project>

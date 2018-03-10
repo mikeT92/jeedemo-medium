@@ -1,0 +1,19 @@
+version: '3'
+services:
+  jeedemo-medium-db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=jeedemo_db
+      - MYSQL_USER=jeedemo
+      - MYSQL_PASSWORD=fwpss2018
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - "jeedemo-medium-db-data:/var/lib/mysql"
+  jeedemo-medium-app:
+    image: jeedemo-medium-app:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - jeedemo-medium-db
+volumes:
+  jeedemo-medium-db-data:

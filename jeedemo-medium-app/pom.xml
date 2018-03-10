@@ -6,7 +6,7 @@
 		<artifactId>jeedemo-medium</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>jeedemo-app</artifactId>
+	<artifactId>jeedemo-medium-app</artifactId>
 	<packaging>ear</packaging>
 	<dependencies>
 		<dependency>
@@ -44,6 +44,58 @@
 					<generateApplicationXml>true</generateApplicationXml>
 					<useBaseVersion>true</useBaseVersion>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-docker-build-resources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/docker-resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/src/main/docker/application</directory>
+									<filtering>true</filtering>
+								</resource>
+								<resource>
+									<directory>${project.build.directory}</directory>
+									<includes>*.ear</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>build-application-docker-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+						<configuration>
+							<images>
+								<image>
+									<name>${project.artifactId}</name>
+									<build>
+										<dockerFileDir>${project.build.directory}/docker-resources</dockerFileDir>
+										<tags>
+											<tag>${project.version}</tag>
+										</tags>
+									</build>
+								</image>
+							</images>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
