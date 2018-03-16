@@ -7,36 +7,8 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>jeedemo-medium-resources</artifactId>
-	<properties>
-		<database.host>192.168.99.100</database.host>
-		<database.port>3306</database.port>
-		<database.url>jdbc:mysql://${database.host}:${database.port}/jeedemo_db?useSSL=false</database.url>
-		<database.user>jeedemo</database.user>
-		<database.password>fwpss2018</database.password>
-		<database.schema>jeedemo_db</database.schema>
-		<mysql.jdbc.version>5.1.44</mysql.jdbc.version>
-	</properties>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<configuration>
-					<url>${database.url}</url>
-					<user>${database.user}</user>
-					<password>${database.password}</password>
-					<schemas>
-						<schema>${database.schema}</schema>
-					</schemas>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>${mysql.jdbc.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>

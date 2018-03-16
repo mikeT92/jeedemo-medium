@@ -34,7 +34,7 @@ rem start glassfish domain to setup server instance
 call asadmin start-domain --domaindir %GLASSFISH_DOMAIN_ROOT% %GLASSFISH_DOMAIN_NAME%
 
 rem create database resources
-call asadmin --port 8048 create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --ping --wrapjdbcobjects true --isolationlevel read-committed --property portNumber=3306:password=fwpss2018:user=jeedemo:serverName=192.168.99.100:databaseName=jeedemo_db JEEDEMO_POOL
+call asadmin --port 8048 create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --wrapjdbcobjects true --isolationlevel read-committed --property portNumber=3306:password=fwpss2018:user=jeedemo:serverName=192.168.99.100:databaseName=jeedemo_db JEEDEMO_POOL
 call asadmin --port 8048 create-jdbc-resource --connectionpoolid JEEDEMO_POOL jdbc/JEEDEMO_DATASOURCE
 
 rem enable default principal to role mapping
