@@ -8,12 +8,12 @@ version: '3'
 
 services:
 
-  mysql-jeedemo-medium:
+  jeedemo-medium-db:
     image: mysql:5.7
     ports:
       - "3306:3306"
     volumes:
-      - mysql-jeedemo-medium-data:/var/lib/mysql
+      - jeedemo-medium-db-data:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_USER: jeedemo
@@ -22,7 +22,7 @@ services:
    
 volumes:
 
-  mysql-jeedemo-medium-data:
+  jeedemo-medium-db-data:
 
 
 

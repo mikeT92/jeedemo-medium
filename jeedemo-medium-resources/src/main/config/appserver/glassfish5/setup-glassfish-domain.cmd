@@ -8,7 +8,7 @@ rem @echo off
 setlocal
 
 set GLASSFISH_DOMAIN_ROOT=z:\data\glassfish\domains
-set GLASSFISH_DEFAULT_DOMAIN_NAME=GFFP50_JEEDEMO_DEV
+set GLASSFISH_DEFAULT_DOMAIN_NAME=GF50FP_JEEDEMO_MEDIUM
 set GLASSFISH_DOMAIN_NAME=%1
 
 rem use default domain name if no one is given

@@ -13,6 +13,13 @@ services:
     image: jeedemo-medium-app:latest
     ports:
       - 8080:8080
+      - 4848:4848
+    environment:
+      - MYSQL_SERVER_NAME=jeedemo-medium-db
+      - MYSQL_PORT_NUMBER=3306
+      - MYSQL_DATABASE_NAME=jeedemo_db
+      - MYSQL_USER=jeedemo
+      - MYSQL_PASSWORD=fwpss2018  
     depends_on:
       - jeedemo-medium-db
 volumes:
